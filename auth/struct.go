@@ -1,10 +1,15 @@
 package auth
 
-type AuthStruct struct {
-	Code         string
-	Token        string
-	RefreshToken string
-	ClientID     string
-	TenantID     string
-	State        int //Random thing
+type InfoStruct struct {
+	Code  string
+	State int //Random thing
+	Token TokenStruct
+}
+
+type TokenStruct struct {
+	TokenType    string `json:"token_type"`
+	Scope        string `json:"scope"`
+	ExpiresIn    int    `json:"expires_in"`
+	ExtExpiresIn int    `json:"ext_expires_in"`
+	AccessToken  string `json:"access_token"`
 }
